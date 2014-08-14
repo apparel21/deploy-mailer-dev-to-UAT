@@ -1,0 +1,12 @@
+language: python
+
+python:
+  - 2.6
+
+script:
+  - rm -fr mailer-dev
+  - git clone git@heroku.com:companyservice-dev.git
+
+after_success:
+  - cd companyservice-dev
+  - git push -f git@heroku.com:companyservice-uat.git master

@@ -4,9 +4,25 @@ python:
   - 2.6
 
 script:
-  - rm -fr mailer-dev
+  - rm -fr companyservice-dev
   - git clone git@heroku.com:companyservice-dev.git
-
-after_success:
   - cd companyservice-dev
   - git push -f git@heroku.com:companyservice-uat.git master
+
+  - rm -fr emailservice-dev
+  - git clone git@heroku.com:emailservice-dev.git
+  - cd emailservice-dev
+  - git push -f git@heroku.com:emailservice-uat.git master
+
+  - rm -fr loginmail-dev
+  - git clone git@heroku.com:loginmail-dev.git
+  - cd loginmail-dev
+  - git push -f git@heroku.com:loginmail-uat.git master
+
+  - rm -fr mailer-dev
+  - git clone git@heroku.com:mailer-dev.git
+  - cd mailer-dev
+  - git push -f git@heroku.com:mailer-uat.git master
+
+
+after_success:
